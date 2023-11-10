@@ -13,15 +13,15 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/react-util",
+        path: "/React_Util_Projects",
         element: <TextForm heading="Enter the text to analyze below" />,
       },
       {
-        path: "/react-util/about",
+        path: "/React_Util_Projects/about",
         element: <About />,
       },
       {
-        path: "/react-util/toDo",
+        path: "/React_Util_Projects/toDo",
         element: <Todo />,
       },
     ],

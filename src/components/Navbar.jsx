@@ -7,7 +7,7 @@ const Navbar = (props) => {
       data-bs-theme={props.appMode === "light" ? "light" : "dark"}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/react-util">
+        <Link className="navbar-brand" to="/React_Util_Projects">
           {props.headingTitle}
         </Link>
         <button
@@ -27,18 +27,18 @@ const Navbar = (props) => {
               <Link
                 className="nav-link active"
                 aria-current="page"
-                to="/react-util"
+                to="/React_Util_Projects"
               >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/react-util/about">
+              <Link className="nav-link" to="/React_Util_Projects/about">
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/react-util/toDo">
+              <Link className="nav-link" to="/React_Util_Projects/toDo">
                 Todo List
               </Link>
             </li>
