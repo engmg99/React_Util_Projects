@@ -42,17 +42,18 @@ const Todo = () => {
         </div>
       </div>
       <div className="todo-list">
-        {todos.map((todo, index) => {
-          return (
-            <TodoItem
-              key={index}
-              no={todo.no}
-              text={todo.text}
-              display={todo.display}
-              setTodos={setTodos}
-            />
-          );
-        })}
+        {todos &&
+          todos.map((todo, index) => {
+            return (
+              <TodoItem
+                key={index}
+                no={todo.no}
+                text={todo.text}
+                display={todo.display}
+                setTodos={setTodos}
+              />
+            );
+          })}
       </div>
     </div>
   );
