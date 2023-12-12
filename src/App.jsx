@@ -5,11 +5,18 @@ import Alert from "./components/layouts/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Todo from "./components/todo/Todo";
+import News from "./components/news/News";
 
 const App = () => {
+  let apiKey = import.meta.env.VITE_NEWS_API_KEY; // importing api key from env variable
   const [appModeDarkOrLight, setAppMode] = useState("light");
   const [alert, setAlert] = useState({ msg: "", type: "" });
+  const [selectedCategory, setSelectedCategory] = useState("general");
+  const [pageSize] = useState(8);
 
+  const handleCallback = (childData) => {
+    setSelectedCategory(childData);
+  };
   const showAlert = (msg, type) => {
     setAlert({ msg: msg, type: type });
     setTimeout(() => {
@@ -36,6 +43,7 @@ const App = () => {
             headingTitle="TextUtils"
             appMode={appModeDarkOrLight}
             toggleMode={toggleMode}
+            parentCallback={handleCallback}
           />
           <Alert alert={alert} />
           <Routes>
@@ -55,6 +63,17 @@ const App = () => {
             <Route
               path="/React_Util_Projects/toDo"
               element={<Todo appMode={appModeDarkOrLight} />}
+            />
+            <Route
+              path="/React_Util_Projects/news"
+              element={
+                <News
+                  key={selectedCategory}
+                  apiKey={apiKey}
+                  pageSize={pageSize}
+                  category={selectedCategory}
+                />
+              }
             />
           </Routes>
         </Router>

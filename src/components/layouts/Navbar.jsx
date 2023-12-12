@@ -3,6 +3,22 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 const Navbar = (props) => {
+  let categoryList = [
+    { key: "Business", value: "business" },
+    { key: "Entertainment", value: "entertainment" },
+    { key: "General", value: "general" },
+    { key: "Health", value: "health" },
+    { key: "Science", value: "science" },
+    { key: "Sports", value: "sports" },
+    { key: "Technology", value: "technology" },
+  ];
+
+  const handleCategory = (e) => {
+    let selectedCategory = e.target.dataset.value;
+    console.log("Navbar.jsx:-", selectedCategory);
+    props.parentCallback(selectedCategory);
+  };
+
   return (
     <nav
       className="navbar navbar-expand-lg bg-body-tertiary"
@@ -47,6 +63,36 @@ const Navbar = (props) => {
               <Link className="nav-link" to="/React_Util_Projects/toDo">
                 Todo List
               </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/React_Util_Projects/news">
+                NewsMonkey
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Categories
+              </a>
+              <ul className="dropdown-menu">
+                {categoryList.map((i) => {
+                  return (
+                    <li
+                      key={i.value}
+                      data-value={i.value}
+                      className="dropdown-item"
+                      onClick={handleCategory}
+                    >
+                      {i.key}
+                    </li>
+                  );
+                })}
+              </ul>
             </li>
           </ul>
           {props.appMode === "light" ? (
