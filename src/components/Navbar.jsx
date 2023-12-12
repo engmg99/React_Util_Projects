@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { FaMoon, FaSun } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 const Navbar = (props) => {
   return (
@@ -33,7 +35,11 @@ const Navbar = (props) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/React_Util_Projects/about">
+              <Link
+                className="nav-link"
+                to="/React_Util_Projects/about"
+                state={{ data: props.appMode }}
+              >
                 About
               </Link>
             </li>
@@ -43,26 +49,11 @@ const Navbar = (props) => {
               </Link>
             </li>
           </ul>
-          <div
-            className={`form-check form-switch text-${
-              props.appMode === "light" ? "dark" : "light"
-            }`}
-          >
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-              onClick={props.toggleMode}
-            />
-            <label
-              className="form-check-label"
-              htmlFor="flexSwitchCheckDefault"
-            >
-              Enable Dark Mode
-            </label>
-          </div>
-
+          {props.appMode === "light" ? (
+            <FaSun onClick={props.toggleMode} />
+          ) : (
+            <FaMoon className="text-light" onClick={props.toggleMode} />
+          )}
           {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
@@ -79,5 +70,9 @@ const Navbar = (props) => {
     </nav>
   );
 };
-
+Navbar.propTypes = {
+  appMode: PropTypes.string,
+  headingTitle: PropTypes.string,
+  toggleMode: PropTypes.func,
+};
 export default Navbar;

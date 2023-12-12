@@ -1,10 +1,10 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar";
-import FirstComponent from "./components/FirstComponent";
 import TextForm from "./components/TextForm";
 import About from "./components/About";
 import Alert from "./components/Alert";
-import { Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import Todo from "./components/Todo";
 
 const App = () => {
   const [appModeDarkOrLight, setAppMode] = useState("light");
@@ -29,22 +29,37 @@ const App = () => {
   };
 
   return (
-    <>
-      <Navbar
-        headingTitle="TextUtils"
-        appMode={appModeDarkOrLight}
-        toggleMode={toggleMode}
-      />
-      <Alert alert={alert} />
-      {/* <About appMode={appModeDarkOrLight}></About> */}
-      <Outlet />
-      {/* <TextForm
-        heading="Enter the text to analyze below"
-        appMode={appModeDarkOrLight}
-      />
-      <About />*/}
-      {/* <FirstComponent title="Practice Component" /> */}
-    </>
+    <React.Fragment>
+      <main>
+        <Router>
+          <Navbar
+            headingTitle="TextUtils"
+            appMode={appModeDarkOrLight}
+            toggleMode={toggleMode}
+          />
+          <Alert alert={alert} />
+          <Routes>
+            <Route
+              path="/React_Util_Projects/"
+              element={
+                <TextForm
+                  heading="Enter the text to analyze below"
+                  appMode={appModeDarkOrLight}
+                />
+              }
+            />
+            <Route
+              path="/React_Util_Projects/about"
+              element={<About appMode={appModeDarkOrLight} />}
+            />
+            <Route
+              path="/React_Util_Projects/toDo"
+              element={<Todo appMode={appModeDarkOrLight} />}
+            />
+          </Routes>
+        </Router>
+      </main>
+    </React.Fragment>
   );
 };
 
