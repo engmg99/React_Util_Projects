@@ -1,10 +1,10 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layouts/Navbar";
 import TextForm from "./components/TextForm";
 import About from "./components/About";
-import Alert from "./components/Alert";
+import Alert from "./components/layouts/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
-import Todo from "./components/Todo";
+import Todo from "./components/todo/Todo";
 
 const App = () => {
   const [appModeDarkOrLight, setAppMode] = useState("light");

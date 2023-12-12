@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ".././CSS_Files/Todo.css";
+import "../../CSS_Files/Todo.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import TodoItem from "./TodoItem";
@@ -11,12 +11,14 @@ const Todo = (props) => {
   const [todos, setTodos] = useState([]);
   const inputRef = useRef(null);
   const addTodo = () => {
-    setTodos([
-      ...todos,
-      { no: count++, text: inputRef.current.value, display: "" },
-    ]);
-    inputRef.current.value = "";
-    localStorage.setItem("todos_count", count);
+    if (inputRef.current.value) {
+      setTodos([
+        ...todos,
+        { no: count++, text: inputRef.current.value, display: "" },
+      ]);
+      inputRef.current.value = "";
+      localStorage.setItem("todos_count", count);
+    }
   };
 
   useEffect(() => {

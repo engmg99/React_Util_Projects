@@ -1,7 +1,7 @@
-import ".././CSS_Files/TodoItem.css";
-import tick from ".././assets/tick.png";
-import not_tick from ".././assets/not_tick.png";
-import cross from ".././assets/cross.png";
+import "../../CSS_Files/TodoItem.css";
+import tick from "../../assets/tick.png";
+import not_tick from "../../assets/not_tick.png";
+import cross from "../../assets/cross.png";
 import PropTypes from "prop-types";
 
 const TodoItem = (props) => {
