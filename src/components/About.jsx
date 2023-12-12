@@ -1,36 +1,17 @@
 // import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import FirstComponent from "./FirstComponent";
 
 const About = (props) => {
+  const location = useLocation();
+  const data = location.state?.data;
+  console.log("props passed from routes:", data);
   let modeStyle = {
     color: props.appMode === "dark" ? "white" : "#042743",
     backgroundColor: props.appMode === "dark" ? "#042743" : "white",
     border: "1px solid",
-    borderColor: props.appMode === "dark" ? "white" : 'white',
+    borderColor: props.appMode === "dark" ? "white" : "white",
   };
-  // const [modeStyle, setModeStyle] = useState({
-  //   backgroundColor: "white",
-  //   color: "black",
-  // });
-
-  // const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-  // const toggleStyle = () => {
-  //   if (modeStyle.color === "black") {
-  //     // set light color
-  //     setModeStyle({
-  //       backgroundColor: "black",
-  //       color: "white",
-  //     });
-  //     setBtnText("Enable Light Mode");
-  //   } else {
-  //     setModeStyle({
-  //       // set dark color
-  //       backgroundColor: "white",
-  //       color: "black",
-  //     });
-  //     setBtnText("Enable Dark Mode");
-  //   }
-  // };
 
   return (
     <>
@@ -123,11 +104,8 @@ const About = (props) => {
           </div>
         </div>
       </div>
-      {/* <div className="container my-3">
-        <button type="button" className="btn btn-primary" onClick={toggleStyle}>
-          {btnText}
-        </button>
-      </div> */}
+      <br />
+      <FirstComponent title="Practice Component" />
     </>
   );
 };

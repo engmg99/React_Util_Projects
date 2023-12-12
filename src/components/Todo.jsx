@@ -3,9 +3,11 @@ import ".././CSS_Files/Todo.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import TodoItem from "./TodoItem";
+import PropTypes from "prop-types";
 
 let count = 0;
-const Todo = () => {
+const Todo = (props) => {
+  // state variables
   const [todos, setTodos] = useState([]);
   const inputRef = useRef(null);
   const addTodo = () => {
@@ -28,7 +30,11 @@ const Todo = () => {
     count = localStorage.getItem("todos_count");
   }, []);
   return (
-    <div className="todo">
+    <div
+      className={`todo ${
+        props.appMode === "light" ? "todo-dark" : "todo-light"
+      }`}
+    >
       <div className="todo-header">To-Do List</div>
       <div className="todo-add">
         <input
@@ -58,5 +64,7 @@ const Todo = () => {
     </div>
   );
 };
-
+Todo.propTypes = {
+  appMode: PropTypes.string,
+};
 export default Todo;

@@ -67,7 +67,10 @@ const TextForm = (props) => {
       >
         <h5>Text Summary: </h5>
         <p>
-          {textFromTextArea.split(/\s+/).filter((ele) => ele.length !== 0).length}{" "}
+          {
+            textFromTextArea.split(/\s+/).filter((ele) => ele.length !== 0)
+              .length
+          }{" "}
           words and {textFromTextArea.length} characters and{" "}
           {textFromTextArea.split(/\s+/).filter((ele) => ele.length !== 0)
             .length * 0.008}{" "}
