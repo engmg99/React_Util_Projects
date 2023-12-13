@@ -4,7 +4,7 @@ const NewsItem = (props) => {
   let { title, desc, imgUrl, newsUrl, publishedAt, author, source } = props;
   return (
     <div className="my-3">
-      <div className="card">
+      <div className="card" style={{ height: "650px" }}>
         <span
           className="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
           style={{ zIndex: 1, left: "50%" }}

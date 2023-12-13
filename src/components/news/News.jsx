@@ -23,7 +23,8 @@ const News = (props) => {
   };
 
   const updateNews = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${newsPage}&pageSize=${props.pageSize}`;
+    let url = `http://localhost:5000/getNews/${props.category}/${newsPage}/${props.pageSize}`
+    // let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${newsPage}&pageSize=${props.pageSize}`;
     setLoading(true);
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -33,7 +34,7 @@ const News = (props) => {
 
   return (
     <div className="container my-3">
-      <h1 className="text-center" style={{ margin: "90px 0px 30px 0px" }}>
+      <h1 className="text-center">
         Top Headlines -{" "}
         {props.category.charAt(0).toUpperCase() + props.category.slice(1)}
       </h1>
