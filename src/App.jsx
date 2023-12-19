@@ -72,6 +72,7 @@ const App = () => {
                   apiKey={apiKey}
                   pageSize={pageSize}
                   category={selectedCategory}
+                  appMode={appModeDarkOrLight}
                 />
               }
             />

@@ -23,7 +23,7 @@ const News = (props) => {
   };
 
   const updateNews = async () => {
-    let url = `http://localhost:5000/getNews/${props.category}/${newsPage}/${props.pageSize}`
+    let url = `http://localhost:5000/getNews/${props.category}/${newsPage}/${props.pageSize}`;
     // let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${newsPage}&pageSize=${props.pageSize}`;
     setLoading(true);
     let data = await fetch(url);
@@ -33,7 +33,10 @@ const News = (props) => {
   };
 
   return (
-    <div className="container my-3">
+    <div
+      className="container my-3"
+      style={{ color: props.appMode === "light" ? "#042743" : "white" }}
+    >
       <h1 className="text-center">
         Top Headlines -{" "}
         {props.category.charAt(0).toUpperCase() + props.category.slice(1)}
@@ -80,6 +83,7 @@ const News = (props) => {
 };
 
 News.propTypes = {
+  appMode: PropTypes.string,
   pageSize: PropTypes.number,
   category: PropTypes.string,
   apiKey: PropTypes.string,

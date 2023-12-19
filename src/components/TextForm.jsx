@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const TextForm = (props) => {
-  const [textFromTextArea, setTextFromTextArea] = useState("Enter text here");
+  const [textFromTextArea, setTextFromTextArea] = useState("");
   const handleUpperCase = () => {
     // console.log(textFromTextArea);
     setTextFromTextArea(textFromTextArea.toUpperCase());
@@ -36,8 +36,9 @@ const TextForm = (props) => {
             rows={8}
             value={textFromTextArea}
             onChange={handleOnChange}
+            placeholder="Enter text here"
             style={{
-              backgroundColor: props.appMode === "light" ? "white" : "grey",
+              backgroundColor: props.appMode === "light" ? "white" : "#9d9d9d",
               color: props.appMode === "light" ? "#042743" : "white",
             }}
           />
