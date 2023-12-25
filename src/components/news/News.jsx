@@ -23,8 +23,8 @@ const News = (props) => {
   };
 
   const updateNews = async () => {
-    let url = `http://localhost:5000/getNews/${props.category}/${newsPage}/${props.pageSize}`;
-    // let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${newsPage}&pageSize=${props.pageSize}`;
+    // let url = `http://localhost:5000/getNews/${props.category}/${newsPage}/${props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${newsPage}&pageSize=${props.pageSize}`;
     setLoading(true);
     let data = await fetch(url);
     let parsedData = await data.json();
