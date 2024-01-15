@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Todo from "./components/todo/Todo";
 import News from "./components/news/News";
+import ButtonType from "./components/buttons/ButtonType";
 
 const App = () => {
   let apiKey = import.meta.env.VITE_NEWS_API_KEY; // importing api key from env variable
@@ -75,6 +76,10 @@ const App = () => {
                   appMode={appModeDarkOrLight}
                 />
               }
+            />
+            <Route
+              path="/React_Util_Projects/buttons"
+              element={<ButtonType />}
             />
           </Routes>
         </Router>

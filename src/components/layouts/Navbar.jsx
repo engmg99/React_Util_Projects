@@ -65,6 +65,11 @@ const Navbar = (props) => {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/React_Util_Projects/buttons">
+                Buttons
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/React_Util_Projects/news">
                 NewsMonkey
               </Link>
